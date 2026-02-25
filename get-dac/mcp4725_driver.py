@@ -17,7 +17,7 @@ class MCP4725:
             print("На вход ЦАП можно подавать только целые числа")
 
         if not (0 <= number <= 4095):
-            print("Число выходит за разраядность MCP4752 (12 бит)")
+            print("Число выходит за разрадность MCP4752 (12 бит)")
 
         first_byte = self.wm | self.pds | number >> 8
         second_byte = number & 0xFF
