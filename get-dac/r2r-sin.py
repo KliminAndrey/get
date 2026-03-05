@@ -15,6 +15,7 @@ if __name__ == "__main__":
             # print(val)
             dac.set_voltage(amplitude * val)
             sg.wait_for_sampling_period(sampling_frequency)
+            
 
     finally:
          dac.deinit()
