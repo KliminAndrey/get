@@ -8,10 +8,10 @@ adc = R2R_ADC(dynamic_range=DYNAMIC_RANGE, compare_time=0.0001, verbose=False)
 
 voltage_values = []
 time_values = []
-
+duration = 5
 try:
     start_time = time.time()
-    while time.time() - start_time < 3.0:
+    while time.time() - start_time < duration:
         v = adc.get_sc_voltage()
         t = time.time() - start_time
         voltage_values.append(v)

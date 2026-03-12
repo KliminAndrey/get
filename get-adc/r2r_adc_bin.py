@@ -36,7 +36,7 @@ class R2R_ADC:
     def successive_approximation_adc(self):
         low = 0
         high = 255
-        for _ in range(8):
+        for i in range(8):
             mid = (low + high + 1) // 2
             self.number_to_dac(mid)
             time.sleep(self.compare_time)
@@ -63,7 +63,7 @@ class R2R_ADC:
 
 if __name__ == "__main__":
     try:
-        adc = R2R_ADC(dynamic_range=3.29, compare_time=0.0001, verbose=True)
+        adc = R2R_ADC(dynamic_range=3.29, compare_time=0.01, verbose=True)
         
         while True:
             v = adc.get_sar_voltage()

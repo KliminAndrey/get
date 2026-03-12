@@ -3,7 +3,7 @@ import time
 
 
 class R2R_ADC:
-    def __init__(self, dynamic_range, compare_time = 0.5, verbose = False):
+    def __init__(self, dynamic_range, compare_time = 0.01, verbose = False):
         self.dynamic_range = dynamic_range
         self.verbose = verbose
         self.compare_time = compare_time
@@ -28,10 +28,10 @@ class R2R_ADC:
             time.sleep(self.compare_time)
             v = GPIO.input(self.comp_gpio)
 
-            print(f't {i} { v}')
+            # print(f't {i} { v}')
             if GPIO.input(self.comp_gpio) == 1:
                 return i
-        return 2**8 - 300
+        return 2**8 - 1
 
     def get_sc_voltage(self):
         num = self.sequential_counting_adc()
@@ -42,7 +42,7 @@ class R2R_ADC:
 
 if __name__ == "__main__":
     try:
-        adc = R2R_ADC(3.29, verbose=True)
+        adc = R2R_ADC(3.29, verbose=False)
         
         while True:
             try:

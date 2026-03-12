@@ -15,7 +15,7 @@ def plot_voltage_vs_time(time, voltage, max_voltage):
 def plot_sampling_period_hist(time):
     sampling_periods = [time[i+1] - time[i] for i in range(len(time)-1)]
     plt.figure(figsize=(10, 6))
-    plt.hist(sampling_periods)
+    plt.hist(sampling_periods, bins = 20)
     plt.title('Распределение измерений по времени')
     plt.xlabel('t, с')
     plt.ylabel('n')

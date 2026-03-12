@@ -29,9 +29,9 @@ class MCP3021:
         return voltage
 
 if __name__ == "__main__":
-    DYNAMIC_RANGE = 5.02
+    DYNAMIC_RANGE = 5.2
 
-    adc = MCP3021(DYNAMIC_RANGE)
+    adc = MCP3021(DYNAMIC_RANGE, True)
 
     try:
         while True:
